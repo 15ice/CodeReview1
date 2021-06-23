@@ -1,6 +1,7 @@
-#!/bin/bash
-for file in `ls ../data/in/*.txt`; do
-  cat $file
-  java Main `cat $file` > ../result/`basename $file`
-  cat ../result/`basename $file`
+#!/bin/sh
+// 例: javac ***.java
+for file in $(find ../data/in/*.txt); do
+  out="../result/$(basename $file)"
+  java Main $file > $out
+  cat $out
 done
